@@ -53,7 +53,7 @@ You need your own (free) OAuth client IDs:
    app with OAuth redirect URL `http://localhost:8080/` (and your real domain).
 3. Put both IDs in `config.js`. Client IDs are public, so they aren't secrets.
 
-Run it:
+Run it (on Windows you can just double-click `start.bat`):
 
 ```sh
 npm start        # serves on http://localhost:8080
