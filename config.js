@@ -2,7 +2,7 @@
 // Client IDs are public identifiers, not secrets – it's fine to commit them.
 window.FREE_CONFIG = {
   youtube: {
-    clientId: '', // e.g. '1234-abc.apps.googleusercontent.com'
+    clientId: '892706480571-liml0m0bqeim939m4p1tqe8s3mknbk44.apps.googleusercontent.com',
     regionCode: 'US',
   },
   twitch: {
