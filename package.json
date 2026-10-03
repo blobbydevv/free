@@ -1,0 +1,10 @@
+{
+  "name": "free",
+  "private": true,
+  "type": "module",
+  "description": "One ad-free, family-safe feed built from the platforms you sign in to.",
+  "scripts": {
+    "start": "python3 -m http.server 8080",
+    "test": "node --test test/*.test.js"
+  }
+}
