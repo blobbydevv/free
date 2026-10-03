@@ -196,6 +196,7 @@ function fmtAgo(iso) {
 }
 
 // ---------- boot ----------
+window.FREE_STARTED = true;
 twitch.handleRedirect();
 renderAccounts();
 loadFeed();

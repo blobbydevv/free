@@ -9,6 +9,20 @@
   <link rel="stylesheet" href="styles.css">
   <script src="config.js"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script>
+    // Explain the two ways the app silently fails to start, instead of showing a blank page.
+    addEventListener('DOMContentLoaded', () => {
+      const status = document.getElementById('status');
+      const show = (msg) => { status.innerHTML = msg; status.classList.add('error'); };
+      if (location.protocol === 'file:') {
+        show('This page was opened as a file, so it can\'t run. In the <b>free</b> folder run <code>npm start</code> ' +
+             '(or <code>python -m http.server 8080</code>), then open <a href="http://localhost:8080">http://localhost:8080</a>.');
+        return;
+      }
+      setTimeout(() => { if (!window.FREE_STARTED) show('The app failed to start. Press F12 → Console to see the error, and send it over.'); }, 4000);
+      addEventListener('error', (e) => show('The app hit an error: ' + (e.message || e.filename)));
+    });
+  </script>
   <script type="module" src="src/app.js"></script>
 </head>
 <body>
@@ -21,7 +35,7 @@
   </header>
 
   <main>
-    <section id="welcome" class="welcome" hidden>
+    <section id="welcome" class="welcome">
       <h1>All your videos. One feed. Zero ads from us.</h1>
       <p>Connect the platforms you already use. Free reads what you subscribe to, follow and like, and builds a single feed from it. Mature, 18+, sexual and gory content is always filtered out.</p>
       <div id="connect" class="connect"></div>
@@ -29,6 +43,7 @@
     </section>
 
     <div id="status" class="status" role="status" aria-live="polite"></div>
+    <noscript><p class="status error">Free needs JavaScript turned on.</p></noscript>
 
     <section id="live-section" hidden>
       <h2>Live now</h2>
